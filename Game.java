@@ -20,6 +20,7 @@ public class Game{
             boolean[] shoppingTime = {false}; //turns true if you choose to shop
             boolean[] runningTime = {false}; //turns true if you choose to run
 			boolean[] prayingTime = {false}; //turns true if you choose to pray
+			//WE DON'T NEED prayingTime, cookingTime, or shoppingTime but if I take them out half of the methods won't work
             int[] timeOfDay = {1}; //phases of the day are determined by this number % 5 in the whatTime method; updates when an action is taken
             //morning, noon, afternoon, evening, night
             int[] playerValues = {30, 50, 10, 0, 0}; //updates when certain actions are done
@@ -63,13 +64,13 @@ public class Game{
 				moveTrue = true; //return true if it was found
 			}
 		}
-		String[] takeList = {"take", "Take", "t"}; //list of valid inputs for take
+		/* String[] takeList = {"take", "Take", "t"}; //list of valid inputs for take
 		boolean takeTrue = false;
 		for(String string:takeList){
 			if(input.equals(string)){
 				takeTrue = true; //return true if it was found
 			}
-		}
+		} */
 		/* String[] cookList = {"cook", "Cook", "make food"}; //list of valid inputs for cook
 		boolean cookTrue = false;
 		for(String string:cookList){
@@ -1101,7 +1102,7 @@ public class Game{
 					}
 				}
 				
-				String[] itemList = {"use item", "Attack", "kill", "item", "Item"};
+				String[] itemList = {"use item" , "kill", "item", "Item"};
 				boolean itemTrue = false;
 				for(String string:itemList){
 					if(input.equals(string)){
