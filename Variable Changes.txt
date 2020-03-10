@@ -1,0 +1,9 @@
+Battle is prob gonna be like Pokemon, with a set moveslist
+
+MP -> defensive moves
+physical attacks -> some random ones
+
+no more inventory stuff/weapons
+a lot of the stuff can be taken out i.e. boolean take[] for stuff that's being passed in
+we can change those into instance variables too, but it's a lot to do rn
+some locations can also be removed

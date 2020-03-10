@@ -20,6 +20,7 @@ public class Game{
             boolean[] shoppingTime = {false}; //turns true if you choose to shop
             boolean[] runningTime = {false}; //turns true if you choose to run
 			boolean[] prayingTime = {false}; //turns true if you choose to pray
+			//WE DON'T NEED prayingTime, cookingTime, or shoppingTime but if I take them out half of the methods won't work
             int[] timeOfDay = {1}; //phases of the day are determined by this number % 5 in the whatTime method; updates when an action is taken
             //morning, noon, afternoon, evening, night
             int[] playerValues = {30, 50, 10, 0, 0}; //updates when certain actions are done
@@ -63,20 +64,20 @@ public class Game{
 				moveTrue = true; //return true if it was found
 			}
 		}
-		String[] takeList = {"take", "Take", "t"}; //list of valid inputs for take
+		/* String[] takeList = {"take", "Take", "t"}; //list of valid inputs for take
 		boolean takeTrue = false;
 		for(String string:takeList){
 			if(input.equals(string)){
 				takeTrue = true; //return true if it was found
 			}
-		}
-		String[] cookList = {"cook", "Cook", "make food"}; //list of valid inputs for cook
+		} */
+		/* String[] cookList = {"cook", "Cook", "make food"}; //list of valid inputs for cook
 		boolean cookTrue = false;
 		for(String string:cookList){
 			if(input.equals(string)){
 				cookTrue = true; //return true if it was found
 			}
-		}
+		} */
         
         String[] trainList = {"train", "Train", "do something", "practice"}; //list of valid inputs for train
 		boolean trainTrue = false;
@@ -86,13 +87,13 @@ public class Game{
 			}
         }
         
-        String[] shoppingList = {"shop", "Shop", "buy", "Buy", "go shopping"}; //list of valid inputs for shop
+        /*String[] shoppingList = {"shop", "Shop", "buy", "Buy", "go shopping"}; //list of valid inputs for shop
 		boolean shoppingTrue = false;
 		for(String string:shoppingList){
 			if(input.equals(string)){
 				shoppingTrue = true; //return true if it was found
 			}
-        }
+        } */
 
         String[] runningList = {"run", "Run", "go run", "sprint", "go running"}; //list of valid inputs for run
 		boolean runningTrue = false;
@@ -102,13 +103,13 @@ public class Game{
 			}
         }
 
-        String[] prayList = {"pray", "go pray", "Pray"}; //list of valid inputs for pray
+        /* String[] prayList = {"pray", "go pray", "Pray"}; //list of valid inputs for pray
 		boolean prayTrue = false;
 		for(String string: prayList){
 			if(input.equals(string)){
 				prayTrue = true;
 			}
-		}
+		} */
 
 		String[] inventoryList = {"inventory", "Inventory", "inv"}; //list of valid inputs for inventory
 		boolean inventoryTrue = false;
@@ -149,13 +150,13 @@ public class Game{
 		}
         
 		
-		else if(takeTrue){
+		/* else if(takeTrue){
             System.out.println("You have selected take.");
 			take(location, take); //updates take
 			return location;
-		}
+		} */
 		
-		else if (cookTrue){
+		/* else if (cookTrue){
 			if(location == 4){ //only happens if you're in the right location
 				System.out.println("You have selected cook.");
 				cooking(cookingTime, timeOfDay, playerValues); //runs cook
@@ -165,7 +166,7 @@ public class Game{
 				System.out.println("You can't cook here.");
 				return location;
 			}
-        }
+        } */
         
         else if(trainTrue){
 			if(location == 2){ //only happens if you're in the right location
@@ -179,7 +180,7 @@ public class Game{
 			}
         }
 
-        else if(shoppingTrue){
+        /*else if(shoppingTrue){
             if(location == 6){ //only happens if you're in the right location
 				System.out.println("You have selected to shop.");
 				shopping(timeOfDay, shoppingTime, playerValues); //runs shopping
@@ -189,7 +190,7 @@ public class Game{
 				System.out.println("You can't shop here.");
 				return location;
 			}
-        }
+        } */
 
         else if(runningTrue){
             if(location == 7){ //only happens if you're in the right location
@@ -203,7 +204,7 @@ public class Game{
 			}
         }
 		
-		else if(prayTrue){
+		/* else if(prayTrue){
 			if(location == 8){ //only happens if you're in the right location
 				System.out.println("You have selected to pray.");
 				praying(timeOfDay, prayingTime, playerValues); //runs praying
@@ -213,19 +214,19 @@ public class Game{
 				System.out.println("You can't pray here.");
 				return location;
 			}
-        }
+        } */
 		
 		else if(statTrue){ //displays current player stats
             System.out.println("Your stats are as follows.");
 			System.out.println("HP: " + playerValues[0]);
 			System.out.println("ATK: " + playerValues[1]);
 			System.out.println("MP: " + playerValues[2]);
-			System.out.println("Sandwiches (+HP): " + playerValues[3]);
-			System.out.println("Potions (+MP): " + playerValues[4]);
+			//System.out.println("Sandwiches (+HP): " + playerValues[3]);
+			//System.out.println("Potions (+MP): " + playerValues[4]);
 			return location;
 		}
 
-		else if(inventoryTrue){ //displays current player inventory
+		/* else if(inventoryTrue){ //displays current player inventory
 			System.out.println("Your inventory is as follows.");
 			if(take[0] == true){
 				System.out.println("Knife - 75% accuracy, 5ATK");
@@ -246,7 +247,7 @@ public class Game{
 				System.out.println("Cross - 100% accuracy, 1ATk");
 			}
 			return location;
-		}
+		} */
 
 		else if (exitTrue){
 			System.out.println("Do you really want to quit?");
@@ -408,7 +409,7 @@ public class Game{
         timeOfDay[0] ++; //moves the time forward
         return timeOfDay[0]; 
     }
-    public static int cooking(boolean[] cookingTime, int[] timeOfDay, int[] playerValues){
+    /* public static int cooking(boolean[] cookingTime, int[] timeOfDay, int[] playerValues){
         cookingTime[0] = true; //sets value to true
         playerValues[3] += 1; //adds a sandwich to player stat
         timeOfDay[0] ++; //moves the time forward
@@ -420,7 +421,7 @@ public class Game{
         playerValues[4] += 1; //adds a potion to player stat
         timeOfDay[0] ++; //moves the time forward
         return timeOfDay[0];
-    }
+    } */
 
     public static int running(int[] timeOfDay, boolean[] runningTime, int[] playerValues){
         runningTime[0] = true; //sets value to true
@@ -429,12 +430,12 @@ public class Game{
         return timeOfDay[0];
     }
     
-	public static int praying(int[] timeOfDay, boolean[] prayingTime, int[] playerValues){
+	/* public static int praying(int[] timeOfDay, boolean[] prayingTime, int[] playerValues){
 		prayingTime[0] = true; //sets value to true
         playerValues[2] += 10; //adds MP to player stat
         timeOfDay[0] ++; //moves the time forward
         return timeOfDay[0];
-	}
+	} */
 	
 	public static boolean map(int location, int[] visits, boolean[] take, boolean[] trainingTime, int[] timeOfDay, boolean[] cookingTime, boolean[] shoppingTime, boolean[] runningTime, boolean[] prayingTime, boolean[] loop){
 		//calls a room based on your location
@@ -481,21 +482,22 @@ public class Game{
 
 	public static boolean yourRoom(int visits, boolean take, int timeOfDay, boolean[] loop){	
 		if (visits == -1){ //first time in the room it will display the following
-            System.out.println("Welcome to the Sixth Holy Grail War.");
+            /* System.out.println("Welcome to the Sixth Holy Grail War.");
             System.out.println("There are 7 participants, aka Masters. Each has summoned a hero from the past to help them fight each other!");
             System.out.println("You have summoned KING ARTHUR to aid you in your fight. He is of the SABER class (he uses a sword, shocking)!");
             System.out.println("The other classes are Archer, Lancer, Rider, Assassin, Caster, and Berserker. You will encounter each of these on your journey to win the war.");
             System.out.println("Your prize is the Holy Grail, a mystical item that will grant you anything you want.");
             System.out.println("It's time for you to begin preparing! You can spend your time in various locations. Try taking things along the way (take).");
 			System.out.println("To display your current stats, type in 'stats'. To display inventory, type in 'inventory'.");
-        }
+			*/
+		}
 		System.out.println("Location: Your room."); //always displays location and time
         System.out.println(whatTime(timeOfDay));
 		if (take == true){
-			if (loop[0] == false){ //when you pick up the knife the following will display once
+			/* if (loop[0] == false){ //when you pick up the knife the following will display once
 				System.out.println("You pick up the knife.");
 				loop[0] = true;
-			}
+			} */
 			return true;
 		}
 		else{
@@ -504,10 +506,10 @@ public class Game{
     }
 
 	public static boolean houseHallway(int visits, boolean take, int timeOfDay){
-        if (take == true){ //if player tries to take
+        /* if (take == true){ //if player tries to take
             System.out.println("There's nothing here.");
 			take = false;
-        }
+        } */
 		System.out.println("Location: The hallway."); //always displays location and time
         System.out.println(whatTime(timeOfDay));
 		return false;
@@ -522,7 +524,7 @@ public class Game{
         }
         System.out.println("Location: The dojo.");
 		System.out.println(whatTime(timeOfDay));
-		if (take == true){
+		/* if (take == true){
 			if(loop[2] == false){ //when you pick up the prcatice sword the following will display once
 				System.out.println("There are practice swords in the dojo. You take one.");
 				loop[2] = true;
@@ -531,31 +533,32 @@ public class Game{
 		}
 		else{
 			return false;
-		}
+		} */
+		return false;
 	}
 	public static boolean houseStairs(int visits, boolean take, int timeOfDay){
         System.out.println("The stairwell.");
         if (visits == -1){ //first time in the room it will display the following
             System.out.println("The attic is blocked off.");
         }
-		if (take == true){ //if player tries to take
+		/* if (take == true){ //if player tries to take
             System.out.println("There's nothing here.");
 			take = false;
-        }
+        } */
         System.out.println(whatTime(timeOfDay)); //always displays location and time
 		return false;
 	}
 	public static boolean houseKitchen(int visits, boolean take, int timeOfDay, boolean[] cookingTime, boolean[] loop){
 		if (visits == -1){  //first time in the room it will display the following
-            System.out.println("It's the kitchen. You can cook here. Yum!");
+            System.out.println("It's the kitchen.");
         }
-        if (cookingTime[0] == true){ //when player selects cook
+        /* if (cookingTime[0] == true){ //when player selects cook
             System.out.println("You cooked up a nice sandwich. It might restore some health in a fight.");
             cookingTime[0] = false;
-        }
+        } */
         System.out.println("Location: The kitchen."); //always displays location and time
 		System.out.println(whatTime(timeOfDay));
-		if (take == true){ //when you pick up the butterknife the following will display once
+		/*if (take == true){ //when you pick up the butterknife the following will display once
 			if(loop[4] == false){ 
 				System.out.println("You take a trusty butterknife. What could be better in a fight? Nothing!");
 				loop[4] = true;
@@ -564,29 +567,30 @@ public class Game{
 		}
 		else{
 			return false;
-		}
+		} */
+		return false;
 	}
 	public static boolean houseDoor(int visits, boolean take, int timeOfDay){
-        if (take == true){ //if player tries to take
+        /* if (take == true){ //if player tries to take
             System.out.println("There's nothing here.");
 			take = false;
-        }
+        } */
 		System.out.println("Location: The front door."); //always displays location and time
         System.out.println(whatTime(timeOfDay));
 		return false;
 	}
 	public static boolean shoppingDistrict(int visits, boolean take, int timeOfDay, boolean[] shoppingTime){
         if (visits == -1){ //first time in the room it will display the following
-            System.out.println("You can spend your time shopping. You might be able to grab some restoration items.");
+            System.out.println("You can spend your time shopping.");
         }
-        if (shoppingTime[0] == true){ //when player chooses to shop the following is displayed
+        /* if (shoppingTime[0] == true){ //when player chooses to shop the following is displayed
             System.out.println("You shop around for restoration items, and you got a potion. It might come in handy when doing magic.");
             shoppingTime[0] = false;
 		}
 		if (take == true){
             System.out.println("There's nothing here."); //if player tries to take
 			take = false;
-        }
+        } */
         System.out.println("Location: The shopping district."); //always displays location and time
         System.out.println(whatTime(timeOfDay));
 		return false;
@@ -599,26 +603,25 @@ public class Game{
             System.out.println("You run around the track a bunch. Really worked up a sweat! You feel better. Your HP increased by 10.");
             runningTime[0] = false;
         }
-		if (take == true){ //if player tries to take
+		/* if (take == true){ //if player tries to take
             System.out.println("There's nothing here.");
 			take = false;
-        }
+        } */
         System.out.println("Location: The school."); //always displays location and time
         System.out.println(whatTime(timeOfDay));
 		return false;
 	}
 	public static boolean templeLocation(int visits, boolean take, int timeOfDay, boolean[] prayingTime, boolean[] loop){
 		if (visits == -1){ //first time in the room it will display the following
-            System.out.println("There's a mystical aura around this place. You can spend your time praying at the altar to perhaps increase your magical abilities.");
+            //System.out.println("There's a mystical aura around this place. You can spend your time praying at the altar to perhaps increase your magical abilities.");
         }
-        
         if (prayingTime[0] == true){ //when player chooses to pray the following is displayed
-			System.out.println("You pray for a while. It's a bit awkward. However, you feel your MP increase by 10.");
+			//System.out.println("You pray for a while. It's a bit awkward. However, you feel your MP increase by 10.");
 			prayingTime[0] = false;
 		}
         System.out.println("Location: The temple."); //always displays location and time
 		System.out.println(whatTime(timeOfDay));
-		if (take == true){
+		/*if (take == true){
             if(loop[8] == false){ //when you pick up the mystical sword the following will display once
 				System.out.println("You find a mystical sword in the back of the temple. It's very pointy.");
 				loop[8] = true;
@@ -627,13 +630,14 @@ public class Game{
         }
 		else{
 			return false;
-		}
+		} */
+		return false;
     }
     public static boolean outsideLocation(int visits, boolean take, int timeOfDay){
-		if (take == true){ //if player tries to take
+		/* if (take == true){ //if player tries to take
             System.out.println("There's nothing here.");
 			take = false;
-        }
+        } */
         System.out.println("Location: Outside the house."); //always displays location and time
         System.out.println(whatTime(timeOfDay));
 		return false;
@@ -641,7 +645,7 @@ public class Game{
     public static boolean bridgeLocation(int visits, boolean take, int timeOfDay, boolean[] loop){
 		System.out.println("Location: The bridge."); //always displays location and time
         System.out.println(whatTime(timeOfDay));
-		if (take == true){
+		/* if (take == true){
 			if(loop[10] == false){ //when you pick up the gun the following will display once
 				System.out.println("You find a gun in the bushes. Just how dangerous is your neighbourhood?");
 				loop[10] = true;
@@ -650,12 +654,13 @@ public class Game{
         }
 		else{
 			return false;
-		}
+		} */
+		return false;
     }
     public static boolean churchLocation(int visits, boolean take, int timeOfDay, boolean[] loop){
 		System.out.println("Location: The church."); //always displays location and time
 		System.out.println(whatTime(timeOfDay));
-		if (take == true){
+		/* if (take == true){
 			if(loop[11] == false){ //when you pick up the cross the following will display once
 				System.out.println("You find a cross. It seems pretty useless.");
 				loop[11] = true;
@@ -664,9 +669,10 @@ public class Game{
 		}
 		else{
 			return false;
-		}
+		}*/
+		return false;
     }
-	public static int physicalAttacking(boolean[] take, int[] playerValues){ //called to return a number for the physical attack
+	/* public static int physicalAttacking(boolean[] take, int[] playerValues){ //called to return a number for the physical attack
 		Random random = new Random();
 		String[] knifeList = {"knife", "Knife", "k"};
 		String[] practiceSwordList = {"Practice sword", "practice sword", "ps"};
@@ -804,33 +810,33 @@ public class Game{
 			return 0;
 		}
 		return 0;
-	}
+	} */
 	public static int riderATK(){
 		//chooses Rider's attack from 4 different options
 		Random random = new Random();
 		int atk = random.nextInt(4); //random number 0-3
 
 		if(atk == 0){
-			System.out.println("Rider uses: Mystic Eyes of Petrification. -3 HP to player");
+			//System.out.println("Rider uses: Mystic Eyes of Petrification. -3 HP to player");
 			return 3;
 		}
 		else if(atk == 1){
-			System.out.println("Rider uses: Blood Fort Andromeda. -5 HP to player");
+			//System.out.println("Rider uses: Blood Fort Andromeda. -5 HP to player");
 			return 5;
 		}
 		else if(atk == 2){
-			System.out.println("Rider uses: Pandemonium Cetus. -7 HP to player");
+			//System.out.println("Rider uses: Pandemonium Cetus. -7 HP to player");
 			return 7;
 		}
 		else if(atk == 3){
-			System.out.println("Rider uses: Bellerophon's Charge. -10 HP to player");
+			//System.out.println("Rider uses: Bellerophon's Charge. -10 HP to player");
 			return 10;
 		}
 		else{
 			return 0;
 		}
 	}
-	public static int magicAttacking(int[] playerValues, int[] localMP){ //selects spell to use
+	/* public static int magicAttacking(int[] playerValues, int[] localMP){ //selects spell to use
 		Random random = new Random();
 		System.out.println("The following are available spells: ");
 		System.out.println("Excalibur: -50MP, does 1000 ATK");
@@ -888,9 +894,9 @@ public class Game{
 				}
 			}
 		}
-		return 0;
-	}
-	public static int usingSandwich(int[] playerValues){
+		return 0; 
+	}*/
+	/* public static int usingSandwich(int[] playerValues){
 		if(playerValues[3] <= 0){ //if no sandwiches
 			System.out.println("You don't have any sandwiches!");
 			return 0;
@@ -1033,14 +1039,14 @@ public class Game{
 		else{
 			return 0;
 		}
-	}
+	} */
 	public static int bossFights(int[] playerValues, boolean[] take, boolean[] gameEnd, int[] localMP, int[] timeOfDay){ //method that is called for all boss fights
 		int bossHP = 1; //initializes variable
 		int playerHP = playerValues[0]; //local player HP to not affect the array itself
 		Scanner s = new Scanner(System.in);
 		int loop = 1;
-		String[] potionList = {"Potion", "potion", "p"};
-		String[] sandwichList = {"sandwich", "Sandwich", "s"};
+		//String[] potionList = {"Potion", "potion", "p"};
+		//String[] sandwichList = {"sandwich", "Sandwich", "s"};
 		int start = 1; //initializes variable
 		String bossName = "Hello";
 		
@@ -1051,7 +1057,7 @@ public class Game{
 					bossName = "Rider";
 					bossHP = 500;
 					start = 2;
-				}
+				} /*
 				else if(timeOfDay[0] == 12){ //second boss fight
 					System.out.println("An enemy Servant has appeared! They are Hercules, of the Berserker class.");
 					bossName = "Berserker";
@@ -1081,12 +1087,12 @@ public class Game{
 					bossName = "Gilgamesh";
 					bossHP = 8000;
 					start = 2;
-				}
+				} */
 			}
 			else{
-				System.out.println("You currently have " + playerHP + " HP, " + playerValues[1] + " base ATK, " + localMP[0] + " MP, " + playerValues[3] + " sandwiches (restores health), and " + playerValues[4] + " potions (restores MP)."); //displays player condition
+				System.out.println("You currently have " + playerHP + " HP, " + playerValues[1] + " base ATK, " + localMP[0] + " MP."); //displays player condition
 				System.out.println(bossName + " has " + bossHP + " HP."); //displays boss condition
-				System.out.println("Attack or use an item!");
+				System.out.println("Attack or defend!");
 				String input = s.nextLine();
 				String[] attackList = {"attack", "Attack", "kill", "a"};
 				boolean attackTrue = false;
@@ -1096,7 +1102,7 @@ public class Game{
 					}
 				}
 				
-				String[] itemList = {"use item", "Attack", "kill", "item", "Item"};
+				String[] itemList = {"use item" , "kill", "item", "Item"};
 				boolean itemTrue = false;
 				for(String string:itemList){
 					if(input.equals(string)){
@@ -1136,7 +1142,7 @@ public class Game{
 									int riderAttacks = riderATK();
 									playerHP -= riderAttacks;
 								}
-								else if(timeOfDay[0] == 12){
+								/* else if(timeOfDay[0] == 12){
 									int berserkerAttacks = berserkerATK();
 									playerHP -= berserkerAttacks;
 								}
@@ -1155,7 +1161,7 @@ public class Game{
 								else if(timeOfDay[0] == 40){
 									int archerAttacks = archerATK();
 									playerHP -= archerAttacks;
-								}
+								} */
 								if (playerHP <= 0){ //if the boss kills you
 									System.out.println("You have died. The game will restart.");
 									gameEnd[0] = true; //ends the game
@@ -1192,7 +1198,7 @@ public class Game{
 									int riderAttacks = riderATK();
 									playerHP -= riderAttacks;
 								}
-								else if(timeOfDay[0] == 12){
+								/* else if(timeOfDay[0] == 12){
 									int berserkerAttacks = berserkerATK();
 									playerHP -= berserkerAttacks;
 								}
@@ -1211,7 +1217,7 @@ public class Game{
 								else if(timeOfDay[0] == 40){
 									int archerAttacks = archerATK();
 									playerHP -= archerAttacks;
-								}
+								} */
 								if (playerHP <= 0){
 									System.out.println("You have died. The game will restart.");
 									gameEnd[0] = true;
@@ -1221,7 +1227,7 @@ public class Game{
 						}
 					}
 				}
-				else if(itemTrue){ //if player selected to use an item
+				/* else if(itemTrue){ //if player selected to use an item
 					System.out.println("You have selected to use an item.");
 					System.out.println("Would you like to use a sandwich or a potion?");
 					String newInput = s.nextLine();
@@ -1269,7 +1275,7 @@ public class Game{
 							if(timeOfDay[0] == 5){
 									int riderAttacks = riderATK();
 									playerHP -= riderAttacks;
-								}
+								}  /*
 								else if(timeOfDay[0] == 12){
 									int berserkerAttacks = berserkerATK();
 									playerHP -= berserkerAttacks;
@@ -1300,9 +1306,9 @@ public class Game{
 				}
 				else{ //if user tries to input something else
 					System.out.println("That's not an option!");
-				}
+				} */
 			}
-		}
+		} 
 		return loop;
 	}
 } 
